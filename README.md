@@ -38,12 +38,12 @@ Add the Datadog connector to the Mule Palette by performing an Exchange search, 
 ### Create Global Datadog Connection
 
 Create the global Datadog connection configuration, e.g.:
-![exchange](../images/config.png "Config")
+<center><img src="images/config.png" width="600"></center>
 
 ### Post Datadog Event
 
 Send Datadog events from Mule flows, e.g.:
-![exchange](../images/flow.png "Flow")
+<center><img src="images/flow.png" width="1000"></center>
 
 ## Todo / Ideas
 

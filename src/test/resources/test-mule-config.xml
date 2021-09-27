@@ -1,0 +1,14 @@
+<mule xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:datadog="http://www.mulesoft.org/schema/mule/datadog" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/datadog http://www.mulesoft.org/schema/mule/datadog/current/mule-datadog.xsd">
+
+    <datadog:config name="config" configId="configId">
+        <datadog:connection requiredParameter="aValue" />
+    </datadog:config>
+	<flow name="test-mule-configFlow" doc:id="c7d72626-ccb1-4e2b-9251-39bf7eff7e85" >
+		<datadog:send-event doc:name="Send Event" doc:id="2f31feb7-cab6-49d1-9f47-8b29397bc8a9" config-ref="config" Title="test" Text="test" tags="test:test"/>
+	</flow>
+
+</mule>

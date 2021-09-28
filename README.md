@@ -17,6 +17,16 @@ The following is an overview of the supported Connector operation(s):
 This connector supports the creation of Datadog events only. The underlying Mule Extension project can be used as a starting point to further  encapsulate and enhance the Datadog API functionality.
 
 ## Usage
+### Update Group Id in POM
+
+The default **groupId** is set to `org.mule.extensions`, in order to publish the connector to Exchange the **groupId** must be replaced with a valid organization id, e.g.:
+
+```<groupId>org.mule.extensions</groupId>```
+
+to
+
+```<groupId>8aa90329-5931-4cc5-b212-5db10dec3257</groupId>```
+
 ### Publish the Connector to Exchange
 
 A **distributionManagement** section is available in the pom file. See https://docs.mulesoft.com/exchange/to-publish-assets-maven for additional details.

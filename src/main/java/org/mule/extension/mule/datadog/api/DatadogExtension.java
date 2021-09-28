@@ -15,7 +15,7 @@ import org.mule.runtime.extension.api.annotation.dsl.xml.Xml;
  * declared.
  */
 @Xml(prefix = "datadog")
-@Extension(name = "Datadog", vendor = "Acme", category = COMMUNITY)
+@Extension(name = "Datadog", vendor = "Acme Corp.", category = COMMUNITY)
 @ConnectionProviders(DatadogConnectionProvider.class)
 @Operations({ DatadogOperations.class })
 public class DatadogExtension {

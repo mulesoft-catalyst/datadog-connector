@@ -8,8 +8,11 @@ import org.mule.runtime.api.util.MultiMap;
 public class DatadogUtils {
 	public static final String DD_NAME = "datadog";
 
-	public static final String DD_API_KEY = "DD-API-KEY";
-	public static final String DD_APP_KEY = "DD-APP-KEY";
+	public static final String DD_API_KEY_HEADER = "DD-API-KEY";
+	public static final String DD_APP_KEY_HEADER = "DD-APP-KEY";
+	
+	public static final String DD_API_KEY_QPARAM = "api_key";
+	public static final String DD_APP_KEY_QPARAM = "application_key";
 
 	public static final String DD_EVENTS_PATH = "/api/v1/events";
 	
@@ -20,10 +23,18 @@ public class DatadogUtils {
 	public static final String DD_EVENTS_TITLE = "title";
 	public static final String DD_EVENTS_TEXT = "text";
 
+	public static MultiMap<String, String> getGetEventParameters(String apiKey, String appKey) {
+		MultiMap<String, String> headers = new MultiMap<String, String>();
+		headers.put(DD_API_KEY_QPARAM, apiKey);
+		headers.put(DD_APP_KEY_QPARAM, appKey);
+	
+		return headers;
+	}
+	
 	public static MultiMap<String, String> getPostEventHeaders(String apiKey, String appKey) {
 		MultiMap<String, String> headers = new MultiMap<String, String>();
-		headers.put(DatadogUtils.DD_API_KEY, apiKey);
-		headers.put(DatadogUtils.DD_APP_KEY, appKey);
+		headers.put(DD_API_KEY_HEADER, apiKey);
+		headers.put(DD_APP_KEY_HEADER, appKey);
 		headers.put("Content-Type", "application/json");
 
 		return headers;

@@ -10,11 +10,12 @@ The following is an overview of the supported Connector operation(s):
 
 |No.|Operation|Description|Link|
 |---|---|---|---|
-|1|Send Event|Post events to the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#post-an-event|
+|1|Send Event|Post new events to the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#post-an-event|
+|2|Get Event|Get individual events from the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#get-an-event|
 
 ### Extending this Connector
 
-This connector supports the creation of Datadog events only. The underlying Mule Extension project can be used as a starting point to further  encapsulate and enhance the Datadog API functionality.
+The underlying Mule Extension project can be used as a starting point to further encapsulate and enhance the Datadog API functionality.
 
 ## Usage
 ### Update Group Id in POM

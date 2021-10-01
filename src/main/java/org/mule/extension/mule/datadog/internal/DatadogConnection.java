@@ -2,7 +2,7 @@ package org.mule.extension.mule.datadog.internal;
 
 import org.mule.extension.mule.datadog.api.DatadogConnectionConfiguration;
 import org.mule.extension.mule.datadog.api.DatadogCredentialsConfiguration;
-import org.mule.extension.mule.datadog.api.DatadogEventConfiguration;
+import org.mule.extension.mule.datadog.api.DatadogSendEventConfiguration;
 import org.mule.extension.mule.datadog.api.DatadogEventConnectionConfiguration;
 import org.mule.extension.mule.datadog.api.DatadogUtils;
 import org.mule.runtime.api.util.MultiMap;
@@ -62,7 +62,32 @@ public final class DatadogConnection {
 	/*
 	 * See https://docs.datadoghq.com/api/latest/events/
 	 */
-	public InputStream sendEvent(String title, String text, DatadogEventConfiguration opsEventConfig) {
+	public InputStream getEvent(Long id) {
+		String strUri = hostConfig.getHost() + ":" + hostConfig.getPort() + DatadogUtils.DD_EVENTS_PATH + "/" + id;
+		MultiMap<String, String> params = DatadogUtils.getGetEventParameters(credConfig.getApiKey(),
+				credConfig.getAppKey());
+		HttpRequest httpRequest = HttpRequest.builder().method("GET").uri(strUri).queryParams(params)
+				.build();
+		LOGGER.debug("Http Request: [" + httpRequest.toString() + "]");
+		try {
+			HttpResponse httpResponse = httpClient.send(httpRequest, hostConfig.getTimeout(), false, null);
+			LOGGER.debug("Http Response: [" + httpResponse.toString() + "]");
+			return httpResponse.getEntity().getContent();
+		} catch (IOException e) {
+			LOGGER.error("IOException sending Event to Dadadog", e);
+		} catch (TimeoutException e) {
+			LOGGER.error("TimeoutException sending Event to Dadadog", e);
+		} catch (Exception e) {
+			LOGGER.error("Exception sending Event to Dadadog", e);
+		}
+
+		return null;
+	}
+	
+	/*
+	 * See https://docs.datadoghq.com/api/latest/events/
+	 */
+	public InputStream sendEvent(String title, String text, DatadogSendEventConfiguration opsEventConfig) {
 		String strUri = hostConfig.getHost() + ":" + hostConfig.getPort() + DatadogUtils.DD_EVENTS_PATH;
 		MultiMap<String, String> headers = DatadogUtils.getPostEventHeaders(credConfig.getApiKey(),
 				credConfig.getAppKey());
@@ -87,7 +112,7 @@ public final class DatadogConnection {
 		return null;
 	}
 
-	private String getPostEventRequest(String title, String text, DatadogEventConfiguration eventConfig) {
+	private String getPostEventRequest(String title, String text, DatadogSendEventConfiguration eventConfig) {
 		String[] tags = eventConfig.getTags().trim().split("\\s+");
 		StringBuilder postEventRequest = new StringBuilder();
 		postEventRequest.append("{ ")

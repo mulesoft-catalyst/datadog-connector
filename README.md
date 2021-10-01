@@ -10,7 +10,7 @@ The following is an overview of the supported Connector operation(s):
 
 |No.|Operation|Description|Link|
 |---|---|---|---|
-|1|Get Event|Get a specicifc event from the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#get-an-event|
+|1|Get Event|Get a specific event from the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#get-an-event|
 |2|Get Events|Fetch events from the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#query-the-event-stream|
 |3|Send Event|Post a new event to the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#post-an-event|
 

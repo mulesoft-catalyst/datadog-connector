@@ -18,10 +18,13 @@ public class DatadogUtils {
 	
 	public static final String DD_EVENTS_ALERT_TYPE = "alert_type";
 	public static final String DD_EVENTS_PRIORITY = "priority";
-	public static final String DD_EVENTS_SOURCE_TYPE_NAME = "source_type_name";
+	public static final String DD_EVENTS_SOURCE = "source_type_name";
+	public static final String DD_EVENTS_SOURCES = "source";
 	public static final String DD_EVENTS_TAGS = "tags";
 	public static final String DD_EVENTS_TITLE = "title";
 	public static final String DD_EVENTS_TEXT = "text";
+	public static final String DD_EVENTS_START = "start";
+	public static final String DD_EVENTS_END = "end";
 
 	public static MultiMap<String, String> getGetEventParameters(String apiKey, String appKey) {
 		MultiMap<String, String> headers = new MultiMap<String, String>();

@@ -10,8 +10,9 @@ The following is an overview of the supported Connector operation(s):
 
 |No.|Operation|Description|Link|
 |---|---|---|---|
-|1|Send Event|Post new events to the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#post-an-event|
-|2|Get Event|Get individual events from the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#get-an-event|
+|1|Get Event|Get a specicifc event from the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#get-an-event|
+|2|Get Events|Fetch events from the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#query-the-event-stream|
+|3|Send Event|Post a new event to the Datadog event stream|https://docs.datadoghq.com/api/latest/events/#post-an-event|
 
 ### Extending this Connector
 
@@ -58,10 +59,11 @@ Send Datadog events from Mule flows, e.g.:
 
 ## Todo / Ideas
 
-1. Extend existing `Send Event` operation (e.g. `aggregation_key` and `related_event_id`)
+1. Extend the existing `Send Event` operation (e.g. `aggregation_key` and `related_event_id`)
 
-2. Introduce Operations, e.g. to support:
-- Event fetching
+2. Extend the existing `Fetch Event` operation (e.g. `unaggregated`, `exclude_aggregate` and `page`)
+
+3. Introduce Operations, e.g. to support:
 - Log aggregation
 - Log searches
 - Monitor management

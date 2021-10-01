@@ -3,6 +3,7 @@ package org.mule.extension.mule.datadog.api;
 import static org.mule.runtime.api.meta.Category.COMMUNITY;
 
 import org.mule.extension.mule.datadog.internal.DatadogConnectionProvider;
+import org.mule.extension.mule.datadog.internal.DatadogFetchEventsOperation;
 import org.mule.extension.mule.datadog.internal.DatadogGetEventOperation;
 import org.mule.extension.mule.datadog.internal.DatadogSendEventOperation;
 import org.mule.runtime.extension.api.annotation.Extension;
@@ -18,7 +19,7 @@ import org.mule.runtime.extension.api.annotation.dsl.xml.Xml;
 @Xml(prefix = "datadog")
 @Extension(name = "Datadog", vendor = "Acme Corp.", category = COMMUNITY)
 @ConnectionProviders(DatadogConnectionProvider.class)
-@Operations({ DatadogSendEventOperation.class, DatadogGetEventOperation.class })
+@Operations({ DatadogFetchEventsOperation.class, DatadogGetEventOperation.class, DatadogSendEventOperation.class })
 public class DatadogExtension {
 
 }

@@ -52,9 +52,43 @@ Add the Datadog connector to the Mule Palette by performing an Exchange search, 
 Create the global Datadog connection configuration, e.g.:
 <center><img src="images/config.png" width="600"></center>
 
-### Post Datadog Event
-
+### Send Datadog Event
 Send Datadog events from Mule flows, e.g.:
+<center><img src="images/send_event.png" width="600"></center>
+
+#### Properties
+No.|Title|Comments|
+---|---|---|
+1|Title|Event Title|
+2|Text|Event Text|
+3|Type|Event Type (info, warning, error)|
+4|Tags|Event Tag(s) (comma separated list)
+
+### Get Datadog Event
+Get Datadog events within Mule flows, e.g.:
+<center><img src="images/get_event.png" width="400"></center>
+
+#### Properties
+No.|Title|Comments|
+---|---|---|
+1|Id|Event Id|
+
+### Fetch Datadog Events
+Fetch Datadog events within Mule flows, e.g.:
+<center><img src="images/fetch_events.png" width="500"></center>
+
+#### Properties
+No.|Title|Comments|
+---|---|---|
+1|Start|Timestamp (Unix Epoch)|
+2|End|Timestamp (Unix Epoch)|
+3|Prioroty|Event Priority (low, normal)|
+4|Sources|Event Source(s) (comma separated list)
+4|Tags|Event Tag(s) (comma separated list)
+
+### Example Flow
+
+Example Mule flow demonstrating 'Send Event', 'Get Event' and 'Fetch Events', e.g.:
 <center><img src="images/flow.png" width="1000"></center>
 
 ## Todo / Ideas
